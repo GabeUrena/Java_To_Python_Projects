@@ -58,7 +58,8 @@ while pin_attempts < 3:
         print(f'Goodbye {first_name} {last_name}.')  
         break
         
-
+#Test cases
+#when depositing or withdrawing your input is turned into int. Make sure a string wont get converted. 
               
 
 # create user if not found in text document
