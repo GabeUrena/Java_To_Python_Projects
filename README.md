@@ -2,6 +2,12 @@
 Redoing Java projects in Python.
 
 Project #1 - ATM
-  - Store user information on an Excel sheet (accounts.file)
-  - Find user info using bank_id column
+  - atm, declared variables for user info such as their name, PIN, and balance
+  - atm2, created atm2 class with constructors and created a person object of atm2 that has variables like their first name
+    , their pin, and when they were created.
+  - atm3 (Work in progress), Storing all the user's information on a .txt or excel sheet and pulling that info when needed.
 
+Project #2 - Sudoku Puzzle
+  - IsValidSudoku, checking to see if a sudoku puzzle solution is valid. Checking rows, columns, and grids.
+  - SudokuPuzzleGame, Making a sudoku game
+  - SudokuSolver, Making a program that will solve the remainder of a sudoku puzzle.
