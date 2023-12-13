@@ -39,10 +39,15 @@ class IsValidSudoku:
             for col in range(1,9):
     #grab number and check if it repeats
                 temp = self.__sudokuPuzzle[row][col]
+                print(f'{temp} is the temp')
                 occur = 0
+                print(f'{occur} occurances')
+                print('start of for loop')
                 for x in range(1,9):
                     if temp == self.__sudokuPuzzle[row][x]:
+                        print(f'{temp} is equal to sudokuPuzzle: {self.__sudokuPuzzle[row][x]}')
                         occur += 1
+                        print(occur)
                         if occur > 1:
                             return False
         return True
@@ -66,10 +71,10 @@ class IsValidSudoku:
 
     #run method for threads
     
-puzzleInput = [ [1, 1, 1, 1, 3, 9, 1, 8, 7],
-			    [1, 1, 9, 7, 2, 8, 6, 3, 4],
-				[1, 3, 7, 6, 1, 4, 2, 9, 5],
-				[1, 4, 3, 8, 6, 5, 7, 2, 9],
+puzzleInput = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
+			    [1, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 1, 1, 1, 1, 1, 1, 1, 1],
 				[9, 5, 8, 2, 4, 7, 3, 6, 1],
 				[7, 6, 2, 3, 9, 1, 4, 5, 8],
 				[3, 7, 1, 1, 5, 6, 8, 4, 2],
@@ -78,8 +83,8 @@ puzzleInput = [ [1, 1, 1, 1, 3, 9, 1, 8, 7],
         
 sudokuValidator = IsValidSudoku(puzzleInput)
         
-print(sudokuValidator.columnCheck())
+#print(sudokuValidator.columnCheck())
 print(sudokuValidator.rowCheck())
-print(sudokuValidator.gridCheck())
+#print(sudokuValidator.gridCheck())
         
         
