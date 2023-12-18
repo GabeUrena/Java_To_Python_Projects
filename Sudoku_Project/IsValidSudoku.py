@@ -37,8 +37,10 @@ class IsValidSudoku:
     #grab number, if that number shows up multiple times return false
                         num = self.__sudokuPuzzle[segRow+gridRow][segCol+gridCol]
                         if(tempArr[num]):
+                            print('Grid Check: False')
                             return False
                         tempArr[num]=True
+        print('Column Check: True')
         return True
     
     
@@ -55,9 +57,13 @@ class IsValidSudoku:
                     if temp == self.__sudokuPuzzle[row][x]:
                         occur += 1
                         if occur > 1:
+                            print('Row Check: False')
                             return False
+        print('Column Check: True')
         return True
-                    
+    
+    def sum (self):
+        return 1
                     
     #column check
     def columnCheck(self):
@@ -72,10 +78,29 @@ class IsValidSudoku:
                     if temp == self.__sudokuPuzzle[x][col]:
                         occur += 1
                         if occur > 1:
+                            print('Column Check: False')
                             return False
+        print('Column Check: True')
         return True
 
     #run method for threads
+    def threadrun (self):
+        thread1 = threading.Thread(target = self.columnCheck)
+        thread2 = threading.Thread(target = self.rowCheck)
+        thread3 = threading.Thread(target = self.gridCheck)
+        
+        print('******* Starting Threads *******')
+        
+        thread1.start()
+        thread2.start()
+        thread3.start()
+        
+        thread1.join()
+        thread2.join()
+        thread3.join()
+        
+        print('******* Threads complete *******')
+        
 """   
 puzzleInput = [[1, 2, 3, 4, 5, 6, 7, 8, 9],
 			      [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -98,12 +123,9 @@ puzzleInput = [[6, 2, 4, 5, 3, 9, 1, 8, 7],
 				[4, 9, 6, 1, 8, 2, 5, 7, 3],
 				[2, 8, 5, 4, 7, 3, 9, 1, 6]]
 
-                
+                    
 sudokuValidator = IsValidSudoku(puzzleInput)
-        
-thread1 = threading.Thread(target=gridCheck,args=(10,))
-print(sudokuValidator.columnCheck())
-print(sudokuValidator.rowCheck())
-print(sudokuValidator.gridCheck())
+
+sudokuValidator.threadrun()
         
         
