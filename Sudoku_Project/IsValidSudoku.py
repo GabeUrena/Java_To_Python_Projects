@@ -1,4 +1,7 @@
 import numpy as np
+import threading
+
+
 class IsValidSudoku:
     __sudokuPuzzle = [ [0, 0, 0, 0, 0, 0, 0, 0, 0],
 			    [0, 0,0 , 0, 0, 0, 0, 0, 0],
@@ -98,6 +101,7 @@ puzzleInput = [[6, 2, 4, 5, 3, 9, 1, 8, 7],
                 
 sudokuValidator = IsValidSudoku(puzzleInput)
         
+thread1 = threading.Thread(target=gridCheck,args=(10,))
 print(sudokuValidator.columnCheck())
 print(sudokuValidator.rowCheck())
 print(sudokuValidator.gridCheck())
